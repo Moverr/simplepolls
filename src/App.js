@@ -5,7 +5,7 @@ import Router from './Router';
 
 function App() {
   return (
-    <div>
+    <div className="container-fluid">
       <Router />
     </div>
   );
