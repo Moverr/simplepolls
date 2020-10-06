@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Input FIeld should  render correctly 1`] = `
+<InputField
+  props={true}
+  type="checkbox"
+/>
+`;

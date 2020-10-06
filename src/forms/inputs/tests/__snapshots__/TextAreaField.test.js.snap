@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Input FIeld should  render correctly 1`] = `
+<textarea
+  props={true}
+>
+  props.value
+</textarea>
+`;
