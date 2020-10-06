@@ -9,6 +9,7 @@ class login extends Component {
     constructor(props) {
         super(props);
         this.state = { username: '', password: '' };
+        this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
@@ -16,6 +17,8 @@ class login extends Component {
     //Functional COmponent 
     handleChange(e) {
         this.setState({ value: e.target.value });
+        props.history.push("/dashboard/");
+
     }
 
     handleSubmit(e) {
@@ -28,7 +31,7 @@ class login extends Component {
 
             <div className={'row'}>
                 <div className={'col-md-10'}>
-                    <form role="form" onSubmit>
+                    <form role="form" onSubmit={this.handleSubmit}>
                         <h1>LOGIN FORM </h1>
 
                         {/* username  */}
