@@ -31,13 +31,13 @@ class login extends Component {
                         {/* username  */}
                         <div className="form-group">
                             <label>Username : </label>
-                            <InputField className="form-control"     value={this.state.username}    onChange={(e)=>this.setState({username:e.target.value})}    />
+                            <InputField className="form-control"     value={this.state.username}    callback={(e)=>this.setState({username:e.target.value})}    />
                         </div>
 
                         {/* Password  */}
                         <div className="form-group">
                             <label>Password : </label>
-                            <InputField className="form-control" type="password"   value={this.state.password}    onChange={(e)=>this.setState({password:e.target.value})} />
+                            <InputField className="form-control" type="password"   value={this.state.password}    callback={(e)=>this.setState({password:e.target.value})} />
 
                         </div>
                     </form>
