@@ -23,7 +23,7 @@ class login extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        props.history.push("/dashboard/");
+        this.props.history.push("/dashboard/");
     }
 
 
