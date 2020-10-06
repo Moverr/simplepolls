@@ -17,12 +17,13 @@ class login extends Component {
     //Functional COmponent 
     handleChange(e) {
         this.setState({ value: e.target.value });
-        props.history.push("/dashboard/");
+      
 
     }
 
     handleSubmit(e) {
         e.preventDefault();
+        props.history.push("/dashboard/");
     }
 
 
