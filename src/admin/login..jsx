@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import InputField from '../forms/inputs/InputField';
+import ButtonField from '../forms/fields/ButtonField';
 
 
 class login extends Component {
@@ -40,6 +41,8 @@ class login extends Component {
                             <InputField className="form-control" type="password"   value={this.state.password}    callback={(e)=>this.setState({password:e.target.value})} />
 
                         </div>
+
+                        <ButtonField  title="SUBMIT" />
                     </form>
                 </div>
 
