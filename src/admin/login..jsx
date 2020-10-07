@@ -23,7 +23,8 @@ class login extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.history.push("/dashboard/");
+      //  this.props.history.push("/dashboard/");
+       alert("Invalid Credentials");
     }
 
 

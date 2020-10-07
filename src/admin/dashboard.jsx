@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 
 class dashboard extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { category: 'Dashboard' };
+
+
+    }
+
+
     render() {
         return (
             <div className="row">
@@ -55,25 +64,119 @@ class dashboard extends Component {
                                 <div className="list-group-item">
                                     Doctor's Panel
                             </div>
-                                <a href="#" className="list-group-item list-group-item-action   justify-content-between google-drive-opener">Patients <span class="badge badge-light badge-pill">14</span></a>
-                                <a href="#" className="list-group-item list-group-item-action   justify-content-between google-drive-opener">Patients <span class="badge badge-light badge-pill">14</span></a>
-                                <a href="#" className="list-group-item list-group-item-action   justify-content-between google-drive-opener">Patients <span class="badge badge-light badge-pill">14</span></a>
-                                <a href="#" className="list-group-item list-group-item-action   justify-content-between google-drive-opener">Patients <span class="badge badge-light badge-pill">14</span></a>
-                                <a href="#" className="list-group-item list-group-item-action   justify-content-between google-drive-opener">Patients <span class="badge badge-light badge-pill">14</span></a>
+                                <span href="#" className="list-group-item list-group-item-action   justify-content-between google-drive-opener"  >  Registrations <span class="badge badge-light badge-pill">14</span></span>
+                                <a href="#" className="list-group-item list-group-item-action   justify-content-between google-drive-opener"> Apointments <span class="badge badge-light badge-pill">14</span></a>
+                                <a href="#" className="list-group-item list-group-item-action   justify-content-between google-drive-opener"> Enquiries <span class="badge badge-light badge-pill">14</span></a>
+                                <a href="#" className="list-group-item list-group-item-action   justify-content-between google-drive-opener"> Progress Reports <span class="badge badge-light badge-pill">14</span></a>
 
                                 <div className="list-group-item">
 
 
                                 </div>
-                                {/* <div className="list-group-item justify-content-between">
-                                Help <span className="badge badge-secondary badge-pill">14</span>
-                            </div>  */}
-                                {/* <a href="#" className="list-group-item list-group-item-action active justify-content-between google-drive-opener">Home <span class="badge badge-light badge-pill">14</span></a> */}
+
                             </div>
                         </div>
                         <div className="col-md-10">
                             <div>
-                                <h1> Interesting  section</h1>
+                                <h1>{this.state.category}</h1>
+                                <br />
+
+                                <div class="container-fluid">
+                                    <div className="row">
+                                        <div className="col-md-12">
+                                            <table className="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                            #
+						</th>
+                                                        <th>
+                                                            Product
+						</th>
+                                                        <th>
+                                                            Payment Taken
+						</th>
+                                                        <th>
+                                                            Status
+						</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            1
+						</td>
+                                                        <td>
+                                                            TB - Monthly
+						</td>
+                                                        <td>
+                                                            01/04/2012
+						</td>
+                                                        <td>
+                                                            Default
+						</td>
+                                                    </tr>
+                                                    <tr className="table-active">
+                                                        <td>
+                                                            1
+						</td>
+                                                        <td>
+                                                            TB - Monthly
+						</td>
+                                                        <td>
+                                                            01/04/2012
+						</td>
+                                                        <td>
+                                                            Approved
+						</td>
+                                                    </tr>
+                                                    <tr className="table-success">
+                                                        <td>
+                                                            2
+						</td>
+                                                        <td>
+                                                            TB - Monthly
+						</td>
+                                                        <td>
+                                                            02/04/2012
+						</td>
+                                                        <td>
+                                                            Declined
+						</td>
+                                                    </tr>
+                                                    <tr className="table-warning">
+                                                        <td>
+                                                            3
+						</td>
+                                                        <td>
+                                                            TB - Monthly
+						</td>
+                                                        <td>
+                                                            03/04/2012
+						</td>
+                                                        <td>
+                                                            Pending
+						</td>
+                                                    </tr>
+                                                    <tr className="table-danger">
+                                                        <td>
+                                                            4
+						</td>
+                                                        <td>
+                                                            TB - Monthly
+						</td>
+                                                        <td>
+                                                            04/04/2012
+						</td>
+                                                        <td>
+                                                            Call in to confirm
+						</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
