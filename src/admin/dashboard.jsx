@@ -9,14 +9,14 @@ class dashboard extends Component {
                      
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span className="navbar-toggler-icon"></span>
-                    </button> <a className="navbar-brand google-drive-opener" href="#">Brand</a>
+                    </button> <a className="navbar-brand google-drive-opener" href="#">ULTRA LIGNERS</a>
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul className="navbar-nav">
                             <li className="nav-item active">
-                                 <a className="nav-link google-drive-opener" href="#">Link <span class="sr-only">(current)</span></a>
+                                 <a className="nav-link google-drive-opener" href="#">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <li className="nav-item">
-                                 <a className="nav-link google-drive-opener" href="#">Link</a>
+                                 <a className="nav-link google-drive-opener" href="#">About Us</a>
                             </li>
                             <li className="nav-item dropdown">
                                  <a className="nav-link dropdown-toggle google-drive-opener" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown">Dropdown link</a>
@@ -49,23 +49,28 @@ class dashboard extends Component {
                     </div>
                 </nav>
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-2">
                         <div className="list-group">
                              <a href="#" className="list-group-item list-group-item-action active google-drive-opener">Home</a>
                             <div className="list-group-item">
-                                List header
+                                Doctor's Panel
                             </div>
+                            <a href="#" className="list-group-item list-group-item-action   justify-content-between google-drive-opener">Patients <span class="badge badge-light badge-pill">14</span></a>
+                            <a href="#" className="list-group-item list-group-item-action   justify-content-between google-drive-opener">Patients <span class="badge badge-light badge-pill">14</span></a>
+                            <a href="#" className="list-group-item list-group-item-action   justify-content-between google-drive-opener">Patients <span class="badge badge-light badge-pill">14</span></a>
+                            <a href="#" className="list-group-item list-group-item-action   justify-content-between google-drive-opener">Patients <span class="badge badge-light badge-pill">14</span></a>
+                            <a href="#" className="list-group-item list-group-item-action   justify-content-between google-drive-opener">Patients <span class="badge badge-light badge-pill">14</span></a>
+
                             <div className="list-group-item">
-                                <h4 className="list-group-item-heading">
-                                    List group item heading
-                                </h4>
+                                
                                 <p className="list-group-item-text">
-                                    ...
+                                    Movers
                                 </p>
                             </div>
-                            <div className="list-group-item justify-content-between">
+                            {/* <div className="list-group-item justify-content-between">
                                 Help <span className="badge badge-secondary badge-pill">14</span>
-                            </div> <a href="#" className="list-group-item list-group-item-action active justify-content-between google-drive-opener">Home <span class="badge badge-light badge-pill">14</span></a>
+                            </div>  */}
+                            {/* <a href="#" className="list-group-item list-group-item-action active justify-content-between google-drive-opener">Home <span class="badge badge-light badge-pill">14</span></a> */}
                         </div>
                     </div>
                     <div className="col-md-6">
