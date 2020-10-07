@@ -15,6 +15,7 @@ const Router =  function()  {
 			 
 				<BrowserRouter>
 				<Switch>
+				<Route path="*" component={login} />
 				<Route path="/login" component={login} />
 				<Route path="/dashboard" component={dashboard} />
 				 
