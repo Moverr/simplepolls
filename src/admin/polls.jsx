@@ -13,12 +13,13 @@ class polls extends Component {
         };
 
         this.loadCandidate = this.loadCandidate.bind(this);
+        this.handleCallback = this.handleCallback.bind(this);
         
     }
 
     componentDidMount(){
          //fetch from server 
-         fetch('https://api.newvisionapp.com/v1/ElectoralCandidates?limit=6')
+         fetch('https://api.newvisionapp.com/v1/ElectoralCandidates?limit=1000')
         .then(response => response.json())
         .then(data => {
             this.setState({polls:data});
@@ -45,16 +46,17 @@ class polls extends Component {
         let polls = Array();
         if(polldata != null){
             polls = polldata.map(n=>this.loadCandidate(n));
-        }
-      
-        
+        } 
         return  polls;
     }
 
-    loadCandidate(candidate) {
+    loadCandidate(candidateprofile) {
        // return loadCandidate(n);
-       console.log(candidate.id)
-       return <Candidate />
+       console.log(candidateprofile.id)
+       return <Candidate  img={candidateprofile.featured_image}  id={candidateprofile.id}  callback={this.handleCallback}/>
+    }
+    handleCallback(candidateprofile,vote,votestatus){
+        alert("pass")
     }
    
 }

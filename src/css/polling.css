@@ -1,6 +1,13 @@
 .candidate{
-    height: 100px;
+    height: 200px;
     width: 100px;
-    background-color: bisque; float: left;
+    background-color: rgb(253, 251, 249); float: left;
     margin: 5px;
+    font-size: x-small;
+}
+.candidate img{
+    position: relative; width: 100px;
+}
+.candidate button{
+    margin: 1px;
 }
