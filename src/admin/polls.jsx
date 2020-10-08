@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
-import '../css/polling.css';
+import '../css/polling.css'; 
+import Candidate from './Candidate';
+ 
+ 
 
 class polls extends Component {
     render() {
         return (
             <div className="wrapper">
-                <candidate/>
-                <div className="candidate"></div>
-                <div className="candidate"></div>
-                <div className="candidate"></div>
-                <div className="candidate"></div>
-                <div className="candidate"></div>
-                <div className="candidate"></div>
-                <div className="candidate"></div>
+            <Candidate/>
+            
             </div>
         );
     }

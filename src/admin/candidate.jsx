@@ -1,19 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import '../css/polling.css';
+import React  from 'react';
 
-class candidate extends Component {
-
-    
-    render() {
-        return (
-            <div className="candidate">
-                Candidate Profile
-            </div>
-        );
-    }
+const Candidate = function(props) {
+    return <div className="candidate"></div>;
 }
 
-
-
-export default candidate;
+export default Candidate;
