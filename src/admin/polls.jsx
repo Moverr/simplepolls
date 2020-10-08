@@ -5,6 +5,10 @@ import Candidate from './Candidate';
  
 
 class polls extends Component {
+
+    componentDidMount(){
+        alert("Intersting");
+    }
     render() {
         return (
             <div className="wrapper">
