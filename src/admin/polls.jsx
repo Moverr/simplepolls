@@ -9,6 +9,9 @@ class polls extends Component {
         return (
             <div className="wrapper">
             <Candidate/>
+            <Candidate/>
+            <Candidate/>
+            <Candidate/>
             
             </div>
         );
