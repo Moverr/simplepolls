@@ -8,7 +8,7 @@ const Candidate = function(props) {
        Votes :  0 <br/>
        Percentage :  20 <br/>
       <button className={"btn btn-primary"} >YA</button>
-      <button className={"btn btn-primary"}>NO</button>
+      <button className={"btn btn-primary"} onClick={()=>alert('Listen movers')}>NO</button>
     </div>;
 }
 
