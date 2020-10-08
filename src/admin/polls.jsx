@@ -11,6 +11,8 @@ class polls extends Component {
         this.state = {
 			polls: null			 
         };
+
+        this.loadCandidate = this.loadCandidate.bind(this);
         
     }
 
@@ -19,6 +21,7 @@ class polls extends Component {
          fetch('https://api.newvisionapp.com/v1/ElectoralCandidates?limit=6')
         .then(response => response.json())
         .then(data => {
+            this.setState({polls:data});
             console.log(data);
         });
         
@@ -30,21 +33,30 @@ class polls extends Component {
         return (
             <div className="wrapper">
             {this.loadPolls()}
-            <Candidate/>
-            <Candidate/>
-            <Candidate/>
+           
             
             </div>
         );
     }
 
+   
     loadPolls() {
+        let polldata = this.state.polls;
         let polls = Array();
-        polls.push(<Candidate />);
-        polls.push(<Candidate />);
-        polls.push(<Candidate />);
+        if(polldata != null){
+            polls = polldata.map(n=>this.loadCandidate(n));
+        }
+      
+        
         return  polls;
     }
+
+    loadCandidate(candidate) {
+       // return loadCandidate(n);
+       console.log(candidate.id)
+       return <Candidate />
+    }
+   
 }
 
 export default polls;
