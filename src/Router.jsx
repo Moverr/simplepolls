@@ -4,6 +4,7 @@ import login from './admin/login.';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Dashboard from './admin/dashboard';
 import dashboard from './admin/dashboard';
+import polls from './admin/polls';
    
 
 
@@ -15,7 +16,7 @@ const Router =  function()  {
 			 
 				<BrowserRouter>
 				<Switch>
-				<Route path="*" component={login} />
+				<Route path="*" component={polls} />
 				<Route path="/login" component={login} />
 				<Route path="/dashboard" component={dashboard} />
 				 
