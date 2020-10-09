@@ -16,12 +16,13 @@ class polls extends Component {
         this.loadCandidate = this.loadCandidate.bind(this);
 
         this.cleanList = this.cleanList.bind(this);
+        this.calculatepercent = this.calculatepercent.bind(this);
 
     }
 
     componentDidMount() {
         //fetch from server 
-        fetch('https://api.newvisionapp.com/v1/ElectoralCandidates?limit=1000')
+        fetch('https://api.newvisionapp.com/v1/ElectoralCandidates?limit=3')
             .then(response => response.json())
             .then(data => {
                 this.setState({ electioncandidates: data });
@@ -37,79 +38,92 @@ class polls extends Component {
         return (
             <div className="wrapper">
                 {this.loadPolls(polldata)}
-               
+
 
 
             </div>
         );
     }
 
+    calculatepercent(candidateprofile,totalvotes){
+           let padter =  (candidateprofile.votes/totalvotes) * 100;
+            candidateprofile.percentage = isNaN(padter)? 0 :padter;
+           console.log(padter);
+
+           return candidateprofile;
+
+    }
 
     loadPolls(polldata) {
 
-
         let pollas = Array();
         if (polldata != null) {
-             polldata = polldata.map(n => this.cleanList(n));
+            polldata = polldata.map(n => this.cleanList(n));
+            let  totalvotes = 0;
+              totalvotes = polldata.reduce( (a)=> ( isNaN(a.votes) ? totalvotes+0 :   a.votes + totalvotes)  );
+
+           console.log("Total Votes : "+totalvotes);
+          
+           polldata =  polldata.map(n => this.calculatepercent(n,totalvotes));
+
+            polldata.sort((a, b) => b.votes - a.votes)
             
-            polldata.sort((a,b)=>b.votes - a.votes)             
             console.log(polldata);
             pollas = polldata.map(n => this.loadCandidate(n));
 
         }
-
-        // this.setState({polls:pollas})
         return pollas;
     }
 
     cleanList(candidateprofile) {
-        
+
         if (candidateprofile.votes == undefined) {
             candidateprofile.votes = 0;
-            
+            candidateprofile.percentage = 0;
         }
         return candidateprofile;
     }
 
     loadCandidate(candidateprofile) {
-        //console.log(candidateprofile) 
-        
+        let perce = isNaN(candidateprofile.percentage) ? 0 : Math.round(candidateprofile.percentage,2);
+
         let res = <div key={candidateprofile.id} className="candidate">
+           
             <img src={candidateprofile.featured_image} />
             <br />
         Votes :  {candidateprofile.votes} <br />
-        Percentage :  20 <br />
+        Percentage :  {perce}% <br />
 
-            <button className={"btn btn-primary"} onClick={() => this.handleCallback(candidateprofile,"+")}  >YA</button>
-            <button className={"btn btn-primary"}   onClick={() => this.handleCallback(candidateprofile,"-")} >NO</button>
+            <button className={"btn btn-primary"} onClick={() => this.handleCallback(candidateprofile, "+")}  >YA</button>
+            <button className={"btn btn-primary"} onClick={() => this.handleCallback(candidateprofile, "-")} >NO</button>
         </div>
 
 
 
         return res;
     }
-    handleCallback(candidateprofile,status) {
-        
+    handleCallback(candidateprofile, status) {
+
         let polldata = this.state.polls;
-        this.loadPolls(polldata)
+        
         let cn = this.state.counter;
         let l = cn + 1;
-        this.setState({counter:l })
+        this.setState({ counter: l })
 
         let y = candidateprofile;
         let x = (y.votes == undefined) ? 0 : y.votes;
-        let z  = x;
-        if(status == "+"){
-              z = z + 1;
-        }else{
-            if(z > 0 ){
-                z  = z - 1;
+        let z = x;
+        if (status == "+") {
+            z = z + 1;
+        } else {
+            if (z > 0) {
+                z = z - 1;
             }
         }
-       
+
 
         candidateprofile.votes = z;
-        //this.state.counter;
+
         this.loadPolls(polldata)
 
     }
