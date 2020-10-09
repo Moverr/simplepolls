@@ -3,17 +3,21 @@ import { Button } from 'react-bootstrap';
 
  
 
-function Candidate(props){
-    const { votes, profile, img, callback,id } = props;
-    return <div key={id} className="candidate">
-        <img src={img} />
-        <br/>
-        Votes :  {votes+1} <br/>
-        Percentage :  20 <br/>
-       
-       <button className={"btn btn-primary"} onClick={callback}  >YA</button>
-       <button className={"btn btn-primary"} onClick={()=>alert('Listen movers')}>NO</button>
-     </div>;
+function Candidate(candidateprofile){
+    
+    let perce = isNaN(candidateprofile.percentage) ? 0 : Math.round(candidateprofile.percentage, 2);
+
+    let res = <div key={candidateprofile.id} className="candidate">
+
+        <img src={candidateprofile.featured_image} />
+        <br />
+        Votes: {candidateprofile.votes} <br />
+        Percentage: {perce}% <br />
+
+        <button className={"btn btn-primary"} onClick={() => this.handleCallback(candidateprofile, "+")}>YA</button>
+        <button className={"btn btn-primary"} onClick={() => this.handleCallback(candidateprofile, "-")}>NO</button>
+    </div>;
+    return res;
 }
 export default Candidate;
 

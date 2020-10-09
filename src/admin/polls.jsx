@@ -22,7 +22,7 @@ class polls extends Component {
 
     componentDidMount() {
         //fetch from server 
-        fetch('https://api.newvisionapp.com/v1/ElectoralCandidates?limit=3')
+        fetch('https://api.newvisionapp.com/v1/ElectoralCandidates?limit=20')
             .then(response => response.json())
             .then(data => {
                 this.setState({ electioncandidates: data });
@@ -47,9 +47,7 @@ class polls extends Component {
 
     calculatepercent(candidateprofile,totalvotes){
            let padter =  (candidateprofile.votes/totalvotes) * 100;
-            candidateprofile.percentage = isNaN(padter)? 0 :padter;
-           console.log(padter);
-
+            candidateprofile.percentage = padter;
            return candidateprofile;
 
     }
@@ -59,10 +57,13 @@ class polls extends Component {
         let pollas = Array();
         if (polldata != null) {
             polldata = polldata.map(n => this.cleanList(n));
-            let  totalvotes = 0;
-              totalvotes = polldata.reduce( (a)=> ( isNaN(a.votes) ? totalvotes+0 :   a.votes + totalvotes)  );
+            let    totalvotes = polldata.reduce(function(prev, cur) {
+                return prev + cur.votes;
+              }, 0); 
 
            console.log("Total Votes : "+totalvotes);
+
+             
           
            polldata =  polldata.map(n => this.calculatepercent(n,totalvotes));
 
@@ -85,23 +86,27 @@ class polls extends Component {
     }
 
     loadCandidate(candidateprofile) {
-        let perce = isNaN(candidateprofile.percentage) ? 0 : Math.round(candidateprofile.percentage,2);
-
-        let res = <div key={candidateprofile.id} className="candidate">
-           
-            <img src={candidateprofile.featured_image} />
-            <br />
-        Votes :  {candidateprofile.votes} <br />
-        Percentage :  {perce}% <br />
-
-            <button className={"btn btn-primary"} onClick={() => this.handleCallback(candidateprofile, "+")}  >YA</button>
-            <button className={"btn btn-primary"} onClick={() => this.handleCallback(candidateprofile, "-")} >NO</button>
-        </div>
-
-
-
+        let res = this.Candidate(candidateprofile); 
         return res;
     }
+    
+    //todo: candidate 
+    Candidate(candidateprofile) {
+        let perce = isNaN(candidateprofile.percentage) ? 0 : Math.round(candidateprofile.percentage, 2);
+
+        let res = <div key={candidateprofile.id} className="candidate">
+
+            <img src={candidateprofile.featured_image} />
+            <br />
+            Votes: {candidateprofile.votes} <br />
+            Percentage: {perce}% <br />
+
+            <button className={"btn btn-primary"} onClick={() => this.handleCallback(candidateprofile, "+")}>YA</button>
+            <button className={"btn btn-primary"} onClick={() => this.handleCallback(candidateprofile, "-")}>NO</button>
+        </div>;
+        return res;
+    }
+
     handleCallback(candidateprofile, status) {
 
         let polldata = this.state.polls;
