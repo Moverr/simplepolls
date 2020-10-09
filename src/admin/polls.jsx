@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../css/polling.css';
-import Candidate from './Candidate';
+
 
 
 
@@ -89,7 +89,7 @@ class polls extends Component {
         let res = this.Candidate(candidateprofile); 
         return res;
     }
-    
+
     //todo: candidate 
     Candidate(candidateprofile) {
         let perce = isNaN(candidateprofile.percentage) ? 0 : Math.round(candidateprofile.percentage, 2);
